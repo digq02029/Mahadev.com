@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Mahadev Naik – Premium Singer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --text: #f0f0f0;
+      --accent: #00ffe0;
+      --rgb1: 176, 0, 255;
+      --rgb2: 0, 255, 238;
+      --radius: 16px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter',sans-serif;
+      line-height:1.6;
+    }
+    h1,h2,h3{font-family:'Roboto Slab',serif;}
+    a{text-decoration:none;color:var(--accent);}
+    section{padding:3rem 1.5rem;max-width:1000px;margin:auto;}
+    header{padding:4rem 1.5rem;text-align:center;
+      background:url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=cover&w=2000&q=80')no-repeat center/cover;
+      position:relative;
+      color:#fff;
+    }
+    header::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);}
+    .hero{position:relative;z-index:1;
+      padding:2rem;
+      background:rgba(255,255,255,0.05);
+      border:2px solid rgba(var(--rgb1),0.8);
+      border-radius:var(--radius);
+      animation: glow 4s infinite alternate;
+      backdrop-filter:blur(12px);
+    }
+    @keyframes glow {
+      from{box-shadow:0 0 10px rgba(var(--rgb1),0.5),0 0 20px rgba(var(--rgb2),0.3);}
+      to{box-shadow:0 0 20px rgba(var(--rgb2),0.9),0 0 30px rgba(var(--rgb1),0.5);}
+    }
+    .hero h1{font-size:3rem;margin-bottom:0.5rem;color:var(--accent);}
+    .hero p{font-size:1.1rem;color:#bbb;}
+    .card{
+      background:rgba(255,255,255,0.03);
+      border-radius:var(--radius);
+      padding:2rem;
+      margin-bottom:2rem;
+      border:2px solid rgba(var(--rgb2),0.8);
+      animation: glow 6s infinite alternate;
+    }
+    .pricing{display:flex;flex-wrap:wrap;gap:2rem;}
+    .price-box{flex:1;background:#141414;
+      padding:2rem;border-radius:var(--radius);
+      text-align:center;
+      border:2px solid rgba(var(--rgb1),0.8);
+      animation: glow 5s infinite alternate;
+      transition:transform 0.3s;}
+    .price-box:hover{transform:translateY(-5px);}
+    .price-box h3{color:var(--accent);margin-bottom:0.5rem;}
+    form{display:grid;gap:1rem;margin-top:1.5rem;}
+    input,textarea{
+      padding:1rem;border-radius:8px;border:1px solid #444;
+      background:#1e1e1e;color:#fff;font-size:1rem;
+    }
+    button{
+      padding:1rem 2rem;background:var(--accent);
+      border:none;border-radius:30px;font-weight:600;
+      cursor:pointer;transition:transform 0.3s;}
+    button:hover{transform:scale(1.05);}
+    .contact{margin-top:2rem;text-align:center;}
+    .footer{text-align:center;color:#666;font-size:0.9rem;padding:2rem 0;}
+    @media(max-width:600px){
+      .hero h1{font-size:2rem;}
+      .pricing{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <h1>Mahadev Naik</h1>
+      <p>24 Years of Soulful Singing • Book Live Performances</p>
+    </div>
+  </header>
+
+  <section>
+    <h2> Show Concept: Lost in Melody</h2>
+    <div class="card">
+      <p>Experience soulful vintage singing blending classic melodies with modern flair. Ideal for restaurants, bars, resorts, weddings, and private events. Ignite nostalgia and elegance with every note.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Show Packages & Rates</h2>
+    <div class="pricing">
+      <div class="price-box">
+        <h3>Demo Performance</h3>
+        <p>₹1400 (one-time)</p>
+      </div>
+      <div class="price-box">
+        <h3>Weekend Show</h3>
+        <p>₹3500 per show</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Enquire / Book Now</h2>
+    <form id="enquiryForm">
+      <input name="name" type="text" placeholder="Your Full Name" required/>
+      <input name="phone" type="tel" placeholder="Mobile Number" required/>
+      <input name="location" type="text" placeholder="Event Location / City" />
+      <textarea name="message" placeholder="Event details… (Date, venue, guests…)" required></textarea>
+      <button type="submit">Send via WhatsApp</button>
+    </form>
+    <div class="contact">
+      <p><strong>Or contact directly:</strong></p>
+      <p> <a href="tel:9022851662">+91 90228 51662</a></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 Mahadev Naik · All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('enquiryForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const n=this.name.value.trim(), p=this.phone.value.trim(),
+            l=this.location.value.trim()||'N/A',
+            m=this.message.value.trim().replace(/\n/g,'%0A');
+      const text=`Name: ${n}%0APhone: ${p}%0ALocation: ${l}%0AMessage: ${m}`;
+      window.open(`https://wa.me/919022851662?text=${encodeURIComponent(text)}`);
+    });
+  </script>
+</body>
+</html>
